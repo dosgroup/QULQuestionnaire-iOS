@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Classes/**/*'
   s.ios.resource_bundle = { 'QULQuestionnaire' => 'Pod/Assets/**/*.png' }
 
-  s.dependency 'RMStepsController', :git => 'https://github.com/CooperRS/RMStepsController.git', :branch => 'UnlimitedSteps'
+  s.dependency 'RMStepsController', :git => 'https://github.com/dosgroup/RMStepsController.git', :branch => 'UnlimitedSteps'
 end
