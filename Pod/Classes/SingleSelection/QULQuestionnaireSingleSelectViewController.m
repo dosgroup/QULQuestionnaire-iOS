@@ -76,7 +76,7 @@ static const NSInteger otherOption = -1;
     questionLabel.preferredMaxLayoutWidth = 280;
     questionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     questionLabel.numberOfLines = 0;
-    questionLabel.font = [UIFont boldSystemFontOfSize:21.0];
+    questionLabel.font = [UIFont boldSystemFontOfSize:24.0];
     questionLabel.text = self.questionnaireData[@"question"];
     [scrollView addSubview:questionLabel];
     
@@ -89,6 +89,8 @@ static const NSInteger otherOption = -1;
     
     UIButton *nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [nextButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
+    [nextButton.titleLabel setFont:[UIFont systemFontOfSize:24.0]];
+
     nextButton.translatesAutoresizingMaskIntoConstraints = NO;
     nextButton.enabled = ![self.questionnaireData[@"required"] boolValue];
     [nextButton addTarget:self
@@ -131,7 +133,7 @@ static const NSInteger otherOption = -1;
                                                nextButton);
     }
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[scrollView]-[nextButton]-(20)-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(36)-[scrollView]-[nextButton]-(36)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:views]];
@@ -144,11 +146,11 @@ static const NSInteger otherOption = -1;
                                                                       options:0
                                                                       metrics:0
                                                                         views:views]];
-    [scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[questionLabel]-|"
+    [scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(36)-[questionLabel]-(36)-|"
                                                                       options:0
                                                                       metrics:0
                                                                         views:views]];
-    [scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[instructionLabel]-|"
+    [scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(36)-[instructionLabel]-(36)-|"
                                                                       options:0
                                                                       metrics:0
                                                                         views:views]];
@@ -182,6 +184,9 @@ static const NSInteger otherOption = -1;
         
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
+        [label setFont:[UIFont systemFontOfSize:24.0]];
+        [label setMinimumScaleFactor:0.75];
+        [label setAdjustsFontSizeToFitWidth:YES];
         label.text = option[@"value"];
         [scrollView addSubview:label];
         
@@ -191,14 +196,14 @@ static const NSInteger otherOption = -1;
                                                                  toItem:nil
                                                               attribute:NSLayoutAttributeNotAnAttribute
                                                              multiplier:1.0
-                                                               constant:33.0]];
+                                                               constant:66.0]];
         [scrollView addConstraint:[NSLayoutConstraint constraintWithItem:button
                                                               attribute:NSLayoutAttributeHeight
                                                               relatedBy:NSLayoutRelationEqual
                                                                  toItem:nil
                                                               attribute:NSLayoutAttributeNotAnAttribute
                                                              multiplier:1.0
-                                                            constant:33.0]];
+                                                            constant:66.0]];
         
         if ([self.questionnaireData[@"orientation"] integerValue] == QULQuestionnaireSingleSelectOrientationHorizontal) {
             
